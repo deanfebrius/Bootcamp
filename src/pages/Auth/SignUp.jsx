@@ -13,9 +13,9 @@ import {
   InputLabel,
   FilledInput,
 } from '@mui/material';
-import { Email, Lock, Visibility, Facebook, Google, Apple } from '@mui/icons-material';
+import { Email, Lock, Visibility, Person } from '@mui/icons-material';
 import AccountCircle from '@mui/icons-material/AccountCircle';
-import { FacebookLoginButton, AppleLoginButton, GoogleLoginButton } from 'react-social-login-buttons';
+import { FacebookLoginButton, TwitterLoginButton, GoogleLoginButton } from 'react-social-login-buttons';
 
 import '../../assets/styles/SignIn.css';
 
@@ -23,8 +23,8 @@ class SignUp extends React.Component {
   render() {
     return (
       <div className="sign-in-main">
-        <div className="sign-up-label">Create Your Account</div>
-        <div className="sign-up-form">
+        <div className="sign-in-label">Create Your Account</div>
+        <div className="sign-in-form">
           <FormControl variant="standard" className="sign-in-form-input">
             <Input
               id="input-with-icon-adornment"
@@ -38,6 +38,19 @@ class SignUp extends React.Component {
             />
           </FormControl>
 
+          <FormControl variant="standard" className="sign-in-form-input">
+            <Input
+              id="input-with-icon-adornment"
+              sx={{ padding: '12px' }}
+              startAdornment={
+                <InputAdornment position="start">
+                  <Person />
+                </InputAdornment>
+              }
+              placeholder="Full Name"
+            />
+          </FormControl>
+
           <FormControlLabel control={<Checkbox />} label="Agree to Terms & Conditions" className="sign-in-form-check" />
 
           <Button
@@ -46,6 +59,8 @@ class SignUp extends React.Component {
             className="sign-in-form-button">
             Sign up
           </Button>
+
+          <div className='"sign-in-form-forgot'>*</div>
         </div>
         <div className="sign-in-social">
           <div className="sign-in-social-1">or continue with</div>
@@ -57,7 +72,7 @@ class SignUp extends React.Component {
               <GoogleLoginButton onClick={() => alert('Hello')} />
             </div>
             <div classname="sign-in-social-2-a">
-              <AppleLoginButton onClick={() => alert('Hello')} />
+              <TwitterLoginButton onClick={() => alert('Hello')} />
             </div>
           </div>
         </div>

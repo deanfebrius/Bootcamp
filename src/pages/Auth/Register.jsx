@@ -23,8 +23,8 @@ class Register extends React.Component {
   render() {
     return (
       <div className="sign-in-main">
-        <div className="sign-up-label">Create Your Account</div>
-        <div className="sign-up-form">
+        <div className="sign-in-label">Create Your Account</div>
+        <div className="sign-in-form">
           <FormControl variant="standard" className="sign-in-form-input">
             <Input
               id="input-with-icon-adornment"
@@ -85,6 +85,8 @@ class Register extends React.Component {
             className="sign-in-form-button">
             Sign up
           </Button>
+
+          <div className='"sign-in-form-forgot'>*</div>
         </div>
 
         {/* <div className="sign-in-social">

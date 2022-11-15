@@ -15,7 +15,7 @@ import {
 } from '@mui/material';
 import { Email, Lock, Visibility, Facebook, Google, Apple } from '@mui/icons-material';
 import AccountCircle from '@mui/icons-material/AccountCircle';
-import { FacebookLoginButton, AppleLoginButton, GoogleLoginButton } from 'react-social-login-buttons';
+import { FacebookLoginButton, TwitterLoginButton, GoogleLoginButton } from 'react-social-login-buttons';
 
 import '../../assets/styles/SignIn.css';
 
@@ -85,7 +85,7 @@ class SignIn extends React.Component {
               <GoogleLoginButton onClick={() => alert('Hello')} />
             </div>
             <div classname="sign-in-social-2-a">
-              <AppleLoginButton onClick={() => alert('Hello')} />
+              <TwitterLoginButton onClick={() => alert('Hello')} />
             </div>
           </div>
         </div>
