@@ -13,13 +13,36 @@ import {
   InputLabel,
   FilledInput,
 } from '@mui/material';
-import { Email, Lock, Visibility, Facebook, Google, Apple } from '@mui/icons-material';
-import AccountCircle from '@mui/icons-material/AccountCircle';
+import { Email, Lock, Visibility, Facebook, Google, Apple, AccountCircle, VisibilityOff } from '@mui/icons-material';
+// import { AccountCircle, Visibility, VisibilityOff } from '@mui/icons-material';
 import { FacebookLoginButton, TwitterLoginButton, GoogleLoginButton } from 'react-social-login-buttons';
 
 import '../../assets/styles/SignIn.css';
 
 class SignIn extends React.Component {
+  state = {
+    email: '',
+    password: '',
+    showPassword: false,
+  };
+
+  inputHandler = (event) => {
+    const value = event.target.value;
+    const name = event.target.name;
+    this.setState({ [name]: value });
+  };
+
+  handleClickShowPassword = () => {
+    this.setState({
+      ...this.state,
+      showPassword: !this.state.showPassword,
+    });
+  };
+
+  handleMouseDownPassword = (event: React.MouseEvent<HTMLButtonElement>) => {
+    event.preventDefault();
+  };
+
   render() {
     return (
       <div className="sign-in-main">
@@ -27,6 +50,9 @@ class SignIn extends React.Component {
         <div className="sign-in-form">
           <FormControl variant="standard" className="sign-in-form-input">
             <Input
+              name="email"
+              onChange={this.inputHandler}
+              value={this.state.email}
               id="input-with-icon-adornment"
               sx={{ padding: '12px' }}
               startAdornment={
@@ -40,9 +66,12 @@ class SignIn extends React.Component {
 
           <FormControl variant="standard" className="sign-in-form-input">
             <Input
+              name="password"
+              onChange={this.inputHandler}
+              value={this.state.password}
               id="input-with-icon-adornment"
               sx={{ padding: '12px' }}
-              type="password"
+              type={this.state.showPassword ? 'text' : 'password'}
               startAdornment={
                 <InputAdornment position="start">
                   <Lock />
@@ -52,11 +81,10 @@ class SignIn extends React.Component {
                 <InputAdornment position="end">
                   <IconButton
                     aria-label="toggle password visibility"
-                    // onClick={handleClickShowPassword}
-                    // onMouseDown={handleMouseDownPassword}
+                    onClick={this.handleClickShowPassword}
+                    onMouseDown={this.handleMouseDownPassword}
                     edge="end">
-                    {/* {values.showPassword ? <VisibilityOff /> : <Visibility />} */}
-                    <Visibility />
+                    {this.state.showPassword ? <VisibilityOff /> : <Visibility />}
                   </IconButton>
                 </InputAdornment>
               }

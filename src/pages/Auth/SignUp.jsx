@@ -20,6 +20,17 @@ import { FacebookLoginButton, TwitterLoginButton, GoogleLoginButton } from 'reac
 import '../../assets/styles/SignIn.css';
 
 class SignUp extends React.Component {
+  state = {
+    email: '',
+    fullname: '',
+  };
+
+  inputHandler = (event) => {
+    const value = event.target.value;
+    const name = event.target.name;
+    this.setState({ [name]: value });
+  };
+
   render() {
     return (
       <div className="sign-in-main">
@@ -27,6 +38,9 @@ class SignUp extends React.Component {
         <div className="sign-in-form">
           <FormControl variant="standard" className="sign-in-form-input">
             <Input
+              name="email"
+              onChange={this.inputHandler}
+              value={this.state.email}
               id="input-with-icon-adornment"
               sx={{ padding: '12px' }}
               startAdornment={
@@ -40,6 +54,9 @@ class SignUp extends React.Component {
 
           <FormControl variant="standard" className="sign-in-form-input">
             <Input
+              name="fullname"
+              onChange={this.inputHandler}
+              value={this.state.fullname}
               id="input-with-icon-adornment"
               sx={{ padding: '12px' }}
               startAdornment={
